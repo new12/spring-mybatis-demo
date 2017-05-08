@@ -1,7 +1,9 @@
 package com.github.lky.mybatis;
 
 import com.github.lky.mybatis.dao.ext.BookDao;
+import com.github.lky.mybatis.dao.ext.UserQueryDao;
 import com.github.lky.mybatis.entity.Book;
+import com.github.lky.mybatis.entity.UserBook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringMybaitsDemoApplication implements CommandLineRunner {
 
 	@Autowired
-	private BookDao bookDao;
+	private UserQueryDao userQueryDao;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMybaitsDemoApplication.class, args);
@@ -23,7 +25,7 @@ public class SpringMybaitsDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-        Book book = bookDao.selectByPrimaryKey(1);
-        System.out.println(book.getAuthor());
-    }
+        UserBook userBook = userQueryDao.queryUser(1);
+		System.out.println(userBook.getBookIds());
+	}
 }
