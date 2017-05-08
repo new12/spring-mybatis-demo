@@ -1,0 +1,4 @@
+type-aliases-package: com.didichuxing.blueone.carimport.entity
+mapper-locations:
+  - classpath:com/github/lky/mybatis/dao/gen/*.xml
+  - classpath:com/github/lky/mybatis/dao/ext/*.xml

@@ -22,7 +22,7 @@ import java.sql.SQLException;
 @ConditionalOnClass(DruidDataSource.class)
 @ConditionalOnProperty(prefix = "druid",name = "url")
 @AutoConfigureBefore(DataSourceAutoConfiguration.class)
-@MapperScan(basePackages = {})
+@MapperScan(basePackages = {"com.github.lky.mybatis.dao.gen","com.github.lky.mybatis.dao.ext"})
 public class DruidAutoConfiguration {
 
 
