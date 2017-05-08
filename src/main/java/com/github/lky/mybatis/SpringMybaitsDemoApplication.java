@@ -25,7 +25,7 @@ public class SpringMybaitsDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... strings) throws Exception {
-        UserBook userBook = userQueryDao.queryUser(1);
+        UserBook userBook = userQueryDao.queryUserBook(1);
 		System.out.println(userBook.getBookIds());
 	}
 }

@@ -7,4 +7,6 @@ import com.github.lky.mybatis.entity.UserBook;
  */
 public interface UserQueryDao {
     UserBook queryUser(Integer id);
+
+    UserBook queryUserBook(Integer id);
 }

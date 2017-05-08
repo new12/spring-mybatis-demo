@@ -16,7 +16,7 @@ public class UserBook {
 
     private Date updateTime;
 
-//    private List<Book> books;
+    private List<Book> books;
     private List<Integer> bookIds;
 
     public Integer getId() {
@@ -59,11 +59,11 @@ public class UserBook {
         this.bookIds = bookIds;
     }
 
-//    public List<Book> getBooks() {
-//        return books;
-//    }
-//
-//    public void setBooks(List<Book> books) {
-//        this.books = books;
-//    }
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }
