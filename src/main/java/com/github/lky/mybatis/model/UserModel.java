@@ -1,7 +1,9 @@
 package com.github.lky.mybatis.model;
 
 import com.github.lky.mybatis.entity.Book;
+import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ import java.util.List;
  */
 public class UserModel {
     private int id;
+    @NotBlank(message = "用户姓名不能为空")
     private String name;
     private int age;
     private List<BookModel> books;

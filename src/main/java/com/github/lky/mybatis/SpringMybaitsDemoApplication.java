@@ -37,7 +37,7 @@ public class SpringMybaitsDemoApplication implements CommandLineRunner {
 
 	private UserModel produce(){
 		UserModel model = new UserModel();
-		model.setName("李四");
+		model.setName(null);
 		model.setAge(23);
 		List<BookModel> books = new ArrayList<>();
 		BookModel m = new BookModel();
