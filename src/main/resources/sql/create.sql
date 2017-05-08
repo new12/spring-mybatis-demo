@@ -19,3 +19,9 @@ CREATE TABLE `user_book_relation` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `user_ext` (
+  `id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

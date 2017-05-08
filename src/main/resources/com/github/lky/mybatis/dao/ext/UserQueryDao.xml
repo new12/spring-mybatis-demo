@@ -16,6 +16,10 @@
         <result column="name" property="name"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <association property="userExt" javaType="com.github.lky.mybatis.entity.UserExt">
+            <id property="id" column="ext_id"/>
+            <result property="age" column="ext_age"/>
+        </association>
         <collection property="bookIds" ofType="java.lang.Integer">
             <result property="" column="book_id"/>
         </collection>
@@ -50,11 +54,14 @@
         u.update_time as update_time,
         b.id as book_id,
         b.name as book_name,
-        b.author as author
+        b.author as author,
+        ext.id as ext_id,
+        ext.age as ext_age
         FROM
         user u
         LEFT JOIN user_book_relation re on re.user_id=u.id
         left join book b on b.id = re.book_id
+        left join user_ext ext on u.id = ext.user_id
         where u.id = #{id}
     </select>
 </mapper>

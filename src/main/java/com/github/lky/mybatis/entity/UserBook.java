@@ -16,6 +16,8 @@ public class UserBook {
 
     private Date updateTime;
 
+    private UserExt userExt;
+
     private List<Book> books;
     private List<Integer> bookIds;
 
@@ -65,5 +67,13 @@ public class UserBook {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public UserExt getUserExt() {
+        return userExt;
+    }
+
+    public void setUserExt(UserExt userExt) {
+        this.userExt = userExt;
     }
 }
