@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location=""/>
+    <context id="mysql" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/security"
+                        userId="root" password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.github.lky.mybatis.entity" targetProject=".">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.github.lky.mybatis.dao.gen" targetProject=".">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.github.lky.mybatis.dao.gen" targetProject=".">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false">
+            <generatedKey column="id" identity="true" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="book" domainObjectName="Book" enableCountByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false">
+            <generatedKey column="id" identity="true" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="user_book_relation" domainObjectName="UserBookRelation" enableCountByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false">
+            <generatedKey column="id" identity="true" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+        <table tableName="user_ext" domainObjectName="UserExt" enableCountByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false">
+            <generatedKey column="id" identity="true" sqlStatement="SELECT LAST_INSERT_ID()"/>
+        </table>
+    </context>
+
+</generatorConfiguration>
