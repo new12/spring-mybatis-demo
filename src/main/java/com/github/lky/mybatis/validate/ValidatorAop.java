@@ -1,8 +1,11 @@
 package com.github.lky.mybatis.validate;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,15 +33,13 @@ public class ValidatorAop {
         validator = factory.getValidator();
     }
 
-    @Around("execution(* com.github.lky.mybatis.service.impl.*.create(..))")
-    public Object validate(ProceedingJoinPoint joinPoint) throws Throwable{
-        Object[] args = joinPoint.getArgs();
+    @Around(value = "com.github.lky.mybatis.validate.PointCutConfig.summaryPointCut()")
+    public Object validate(ProceedingJoinPoint pjp) throws Throwable{
+        Object[] args = pjp.getArgs();
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(args[0]);
         if (constraintViolations.size() > 0 ) {
             log.error("参数错误");
-
-            return "参数错误";
         }
-        return joinPoint.proceed();
+        return pjp.proceed();
     }
 }
